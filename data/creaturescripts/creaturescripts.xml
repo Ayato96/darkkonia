@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<creaturescripts>
+	<event type="login" name="PlayerLogin" event="script" value="login.lua"/>
+	<event type="joinchannel" name="GuildMotd" event="script" value="guildmotd.lua"/>
+	<event type="receivemail" name="Mail" event="script" value="mail.lua"/>
+	<event type="reportbug" name="SaveReportBug" script="reportbug.lua"/>
+	<event type="advance" name="AdvanceSave" event="script" value="advancesave.lua"/>
+	<event type="think" name="Idle" event="script" value="idle.lua"/>
+	<event type="think" name="SkullCheck" event="script" value="skullcheck.lua"/>
+	<!--	<event type="logout" name="demonOakLogout" event="script" value="demonOakLogout.lua"/>		-->
+	<!--	<event type="death" name="demonOakDeath" event="script" value="demonOakDeath.lua"/>			-->
+	<!--	<event type="login" name="RankLogin" event="script" value="rankskills.lua"/>				-->
+	<!--	<event type="death" name="PlayerDeath" event="script" value="playerdeath.lua"/>				-->
+	<!--	<event type="kill" name="monsterPortals" event="script" value="deathmonster.lua"/>			-->
+	<!--	<event type="login" name="expRate" event="script" value="extraExpRate.lua"/>				-->
+</creaturescripts>

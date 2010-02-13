@@ -1,0 +1,13 @@
+<raid>
+<announce delay="0" message="The --- on --- slowly becomes active once again."/>
+<announce delay="300000" message="There is an evil presence at the --- of ---."/>
+<announce delay="600000" message="Morgaroth Summoned have called an ancient evil into the --- on ---. Beware of its power mortals."/>
+<singlespawn delay="600000" name="Morgaroth" x="---" y="---" z="---" />
+<singlespawn delay="600000" name="Demon" x="---" y="---" z="---" />
+<singlespawn delay="600000" name="Demon" x="---" y="---" z="---" />
+<singlespawn delay="600000" name="Demon" x="---" y="---" z="---" />
+<singlespawn delay="600000" name="Demon" x="---" y="---" z="---" />
+<singlespawn delay="600000" name="Demon" x="---" y="---" z="---" />
+<singlespawn delay="600000" name="Demon" x="---" y="---" z="---" />
+<singlespawn delay="600000" name="Demon" x="---" y="---" z="---" />
+</raid>

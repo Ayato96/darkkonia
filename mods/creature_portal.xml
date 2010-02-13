@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mod name="Create Portal" version="1.0" author="User OtLand" contact="otland.net" enabled="no">
+	<event type="kill" name="monsterTele" event="script" value="creature/kill_tele_monster.lua"/>
+</mod>

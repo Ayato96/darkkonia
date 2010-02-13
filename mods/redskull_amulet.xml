@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mod name="Red Skull Amulet" version="1.0" author="--" contact="--" enabled="yes">
+<description>
+<![CDATA[
+	This amulet will protect anyone who wears it from loss of equipment.
+]]>
+</description>
+<item id="2196" article="a" name="Red Skull Amulet" override="yes"/>
+<event type="login" name="RedSkullAmulet_Login" event="buffer">
+<![CDATA[
+	registerCreatureEvent(cid, "RedSkullAmulet_Login")
+]]>
+</event>
+<event type="death" name="RedSkullAmulet_Login" event="script">
+<![CDATA[
+	function onDeath(cid, corpse, deathList)
+		if (getPlayerSlotItem(cid, CONST_SLOT_NECKLACE).itemid == 2196) then
+		if (getCreatureSkullType(cid) == SKULL_RED) then
+			doCreatureSetDropLoot(cid, false)
+		end
+	end
+return true
+end
+]]>
+</event>
+</mod>

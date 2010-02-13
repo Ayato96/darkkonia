@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mod name="demonOakQuest" version="0.4" author="Darkhaos" contact="eduardo18_15_12@hotmail.com" enabled="no">
+<description>
+	Working Demon Oak Quest for TFS 0.3.5
+</description>
+
+<config name="demonOak_config"><![CDATA[
+	onePerQuest = "yes"
+	level = 120
+	positions =
+{
+	reward = {x=xxx, y=xxx, z=xxx},
+	kick = { x = xxx, y = xxx, z = xxx },
+	summon =
+	{
+		{x=xxx, y=xxx, z=xxx},
+		{x=xxx, y=xxx, z=xxx},
+		{x=xxx, y=xxx, z=xxx},
+		{x=xxx, y=xxx, z=xxx}
+	}
+}
+
+summons =
+{
+	[1] = {"Demon", "Grim Reaper", "Elder Beholder", "Demon Skeleton"},
+	[2] = {"Dark Torturer", "Banshee", "Betrayed Wraith", "Blightwalker"},
+	[3] = {"Bonebeast", "Braindeath", "Diabolic Imp", "Giant Spider"},
+	[4] = {"Hand of Cursed Fate", "Lich", "Undead Dragon", "Vampire"},
+	[5] = {"braindeath", "Demon", "Bonebeast", "Diabolic Imp"},
+	[6] = {"Demon Skeleton", "Banshee", "Elder Beholder", "Bonebeast"},
+	[7] = {"Dark Torturer", "Undead Dragon", "Demon", "Demon"},
+	[8] = {"Elder Beholder", "Betrayed Wraith", "Demon Skeleton", "Giant Spider"},
+	[9] = {"Demon", "Banshee", "Blightwalker", "Demon Skeleton"},
+	[10] = {"Grim Reaper", "Demon", "Diabolic Imp", "Braindeath"},
+	[11] = {"Banshee", "Grim Reaper", "Hand of Cursed fate", "Demon"}
+}
+
+areaPosition =
+{
+	{x=xxx, y=xxx, z=xxx, stackpos = 255},
+	{x=xxx, y=xxx, z=xxx, stackpos = 255}
+}
+
+	demonOak = {8288, 8289, 8290, 8291}
+
+storages =
+{
+	done = 35700,
+	cutTree = 36901
+}
+
+blockingTree =
+{
+	[2709] = {32193, 3669}
+}
+]]></config>
+
+<action itemid="8293" event="buffer"><![CDATA[
+domodlib('demonOak_config')
+
+if blockingTree[itemEx.itemid] and itemEx.uid == blockingTree[itemEx.itemid][1] then
+	if getPlayerLevel(cid) < level then
+			doPlayerSendCancel(cid, "You need level " .. level .. " or more to enter this quest.")
+			return
+		end
+	if getPlayerStorageValue(cid, storages.done) > 0 then
+			doPlayerSendCancel(cid, "You already done this quest.")
+			return
+		end
+	if getPlayerStorageValue(cid, storages.cutTree) > 0 then
+			doPlayerSendCancel(cid, "You only can exit the quest by the teleport.")
+			return
+		end
+	if onePerQuest == "yes" then
+			local players = getPlayersOnline()
+			for _, pid in ipairs(players) do
+	if isInRange(getCreaturePosition(pid), areaPosition[1], areaPosition[2]) then
+			doPlayerSendCancel(cid, "Wait until " .. getCreatureName(pid) .. " finish the quest.")
+			return
+		end
+	end
+end
+
+			doTransformItem(getThingFromPos(toPosition).uid, blockingTree[itemEx.itemid][2])
+			doSendMagicEffect(toPosition, CONST_ME_POFF)
+			doMoveCreature(cid, SOUTH)
+			doPlayerSetStorageValue(cid, storages.cutTree, 1)
+
+elseif isInArray(demonOak, itemEx.itemid) then
+
+local get = getPlayerStorageValue(cid, itemEx.itemid)
+	if get == -1 then
+	get = 1
+end
+
+if(getPlayerStorageValue(cid, 8288) == 12 and getPlayerStorageValue(cid, 8289) == 12 and getPlayerStorageValue(cid, 8290) == 12 and getPlayerStorageValue(cid, 8291) == 12) then
+	doTeleportThing(cid, positions.kick)
+	doPlayerSetStorageValue(cid, storages.done, 1)
+end
+
+if getPlayerStorageValue(cid, itemEx.itemid) > 11 then
+	doSendMagicEffect(toPosition, CONST_ME_POFF)
+end
+
+if(math.random(100) <= 10) then
+	doPlayerSetStorageValue(cid, itemEx.uid, 12)
+end
+
+
+if summons[get] then
+for i = 1, #summons[get] do
+	doCreateMonster(summons[get][i], positions.summon[i])
+	doSendMagicEffect(positions.summon[i], CONST_ME_TELEPORT)
+end
+	doSendMagicEffect(toPosition, CONST_ME_DRAWBLOOD)
+	doPlayerSetStorageValue(cid, itemEx.itemid, get + 1)
+if math.random(100) >= 50 then
+	doTargetCombatHealth(0, cid, COMBAT_EARTHDAMAGE, -270, -310, CONST_ME_BIGPLANTS)
+	end
+end
+end
+]]></action>
+
+<action uniqueid="55100" event="buffer"><![CDATA[
+	domodlib('demonOak_config')
+
+if getPlayerStorageValue(cid, 35700) > 1 then
+	doTeleportThing(cid, positions.reward)
+	doSendMagicEffect(positions.reward, CONST_ME_TELEPORT)
+else
+	return
+end
+]]></action>
+
+<action uniqueid="12901-12904" event="buffer"><![CDATA[
+
+if item.uid == 12901 then
+	queststatus = getPlayerStorageValue(cid, 12900)
+if queststatus < 1 then
+	doPlayerSendTextMessage(cid, MESSAGE_INFO_DESCR, "You have found a Demon Legs.")
+	doPlayerAddItem(cid, 2495, 1)
+		setPlayerStorageValue(cid, 12900, 1)
+	else
+	doPlayerSendTextMessage(cid, MESSAGE_INFO_DESCR, "It is empty.")
+end
+
+elseif item.uid == 12902 then
+	queststatus = getPlayerStorageValue(cid, 12900)
+if queststatus < 1 then
+	doPlayerSendTextMessage(cid, MESSAGE_INFO_DESCR, "You have found a Rainbow Shield.")
+	doPlayerAddItem(cid, 8905, 1)
+		setPlayerStorageValue(cid, 12900, 1)
+	else
+	doPlayerSendTextMessage(cid, MESSAGE_INFO_DESCR, "It is empty.")
+end
+
+elseif item.uid == 12903 then
+	queststatus = getPlayerStorageValue(cid, 12900)
+if queststatus < 1 then
+	doPlayerSendTextMessage(cid, MESSAGE_INFO_DESCR, "You have found a Spellbook of Dark Mysteries.")
+	doPlayerAddItem(cid, 8918, 1)
+		setPlayerStorageValue(cid, 12900, 1)
+	else
+	doPlayerSendTextMessage(cid, MESSAGE_INFO_DESCR, "It is empty.")
+end
+
+elseif item.uid == 12904 then
+	queststatus = getPlayerStorageValue(cid, 12900)
+if queststatus < 1 then
+	doPlayerSendTextMessage(cid, MESSAGE_INFO_DESCR, "You have found a Royal Crossbow.")
+	doPlayerAddItem(cid, 8851, 1)
+		setPlayerStorageValue(cid, 12900, 1)
+	else
+	doPlayerSendTextMessage(cid, MESSAGE_INFO_DESCR, "It is empty.")
+end
+end
+]]></action>
+
+<movevent type="StepOut" uniqueid="32193" event="script">
+
+if item.uid == 32193 then
+	doTransformItem(item.uid, 2709)
+end
+</movevent>
+<movevent type="StepIn" itemid="8292" event="script">
+
+if isPlayer(cid) == TRUE and math.random(1, 24) == 1 then
+	doTargetCombatHealth(0, cid, COMBAT_EARTHDAMAGE, -270, -310, CONST_ME_BIGPLANTS)
+end
+</movevent>
+</mod>
