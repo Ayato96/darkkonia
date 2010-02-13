@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<raids>
+<!--
+	<raid name="Ghazbaran" 	file="scripts/Ghazbaran.xml" 		interval2="2" reftype="single" margin="0" ref="no" enabled="no"/>
+	<raid name="Morgaroth" 	file="scripts/Morgaroth.xml" 		interval2="2" reftype="single" margin="0" ref="no" enabled="no"/>
+	<raid name="Orshabaal" 	file="scripts/Orshabaal.xml" 		interval2="2" reftype="single" margin="0" ref="no" enabled="no"/>
+	<raid name="Ferumbras" 	file="scripts/Ferumbras.xml" 		interval2="2" reftype="single" margin="0" ref="no" enabled="no"/>
+
+	<raid name="apes" 		file="scripts/ApeRaid.xml" 			interval2="2" reftype="single" margin="0" ref="no" enabled="no"/>
+	<raid name="scarabs" 	file="scripts/scarabs.xml" 			interval2="2" reftype="single" margin="0" ref="no" enabled="no"/>
+	<raid name="quaras" 	file="scripts/QuaraRaid.xml" 		interval2="2" reftype="single" margin="0" ref="no" enabled="no"/>
+	<raid name="pirates" 	file="scripts/PirateRaid.xml" 		interval2="2" reftype="single" margin="0" ref="no" enabled="no"/>
+	<raid name="orcs" 		file="scripts/OrcRaid.xml" 			interval2="2" reftype="single" margin="0" ref="no" enabled="no"/>
+	<raid name="elfs" 		file="scripts/ElvesRaid.xml" 		interval2="2" reftype="single" margin="0" ref="no" enabled="no"/>
+
+		<raid name="Example" file="example.xml" interval2="2" margin="0" reftype="single" ref="no"/>
+			won't be executed again till Cave Rat gets killed
+
+		<raid name="Example2" file="example.xml" interval2="2" margin="0" reftype="block" ref="no"/>
+			will stay as 'running' until Cave Rat gets killed
+-->
+</raids>

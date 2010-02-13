@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mod name="Custom Commands" version="1.0" author="MartyX" contact="darkkonia.sytes.net" enabled="yes">
+	<talkaction words="/buypremium" script="talkactions/buypremium.lua" log="no"/>
+	<talkaction words="/changender" script="talkactions/changender.lua" log="no"/>
+	<talkaction words="/saveme" event="script" value="talkactions/savecharacter.lua" log="no"/>
+	<talkaction words="/commands;/cmds" event="script" value="talkactions/commands.lua" log="no"/>
+	<talkaction words="/bg" event="script" value="talkactions/guildcast.lua" log="no"/>
+	<talkaction words="/buy" event="script" value="talkactions/buy.lua" log="no"/>
+	<talkaction words="/spells" event="script" value="talkactions/spellbook.lua" log="no"/>
+	<talkaction words="/go" event="script" value="talkactions/guildoutfit.lua" log="no"/>
+	<talkaction words="/balance" event="script" value="talkactions/balance.lua" log="no"/>
+	<talkaction words="/deposit" event="script" value="talkactions/deposit.lua" log="no"/>
+	<talkaction words="/withdraw" event="script" value="talkactions/withdraw.lua" log="no"/>
+	<talkaction words="/depositall" event="script" value="talkactions/deposit_all.lua" log="no"/>
+	<talkaction words="/withdrawall" event="script" value="talkactions/withdraw_all.lua" log="no"/>
+	<talkaction words="/bless" event="script" value="talkactions/allbless.lua" log="no"/>
+<!--<talkaction words="/portal" event="script" value="talkactions/portal.lua" log="no"/> -->
+	<talkaction words="/stop" access="4" event="script" value="talkactions/stop.lua" log="yes"/>
+</mod>

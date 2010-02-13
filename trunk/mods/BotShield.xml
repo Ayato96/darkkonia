@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mod name="BotShield Pro" version="2.0" author="Syntax" contact="cavitt_glover10@hotmail.com" enabled="no">
+	<description>
+		This mod will enable mid-level bot prevention in your server, this is the main script.
+	</description>    
+		<event type="joinchannel" name="AntiBotLogin" script="creature/botshield.lua">
+	</event>
+</mod>

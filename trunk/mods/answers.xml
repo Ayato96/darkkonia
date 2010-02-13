@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mod name="BotShield Answers" version="2.0" author="Syntax" contact="cavitt_glover10@hotmail.com" enabled="no">
+	<description>
+		This mod will enable mid-level bot prevention in your server, this is the answers mod.
+	</description>
+		<talkaction words="2" script="talkactions/answers.lua" log="no"/>
+		<talkaction words="3" script="talkactions/answers.lua" log="no"/>
+		<talkaction words="4" script="talkactions/answers.lua" log="no"/>
+		<talkaction words="5" script="talkactions/answers.lua" log="no"/>
+		<talkaction words="6" script="talkactions/answers.lua" log="no"/>
+		<talkaction words="7" script="talkactions/answers.lua" log="no"/>
+		<talkaction words="8" script="talkactions/answers.lua" log="no"/>
+		<talkaction words="9" script="talkactions/answers.lua" log="no"/>
+		<talkaction words="10" script="talkactions/answers.lua" log="no"/>
+</mod>

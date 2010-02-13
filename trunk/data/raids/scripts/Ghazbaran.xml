@@ -1,0 +1,11 @@
+<raid>
+<announce delay="0" message="An ancient evil is awakening in the --- ---."/>
+<announce delay="300000" message="Demonic entities are entering the mortal realm in the --- ---."/>
+<announce delay="600000" message="Ghazbaran Summoned The demonic master has revealed itself in the --- ---."/>
+<singlespawn delay="600000" name="Ghazbaran" x="---" y="---" z="---" />
+<singlespawn delay="600000" name="Demonfrost" x="---" y="---" z="---" />
+<singlespawn delay="600000" name="Demonfrost" x="---" y="---" z="---" />
+<singlespawn delay="600000" name="Demonfrost" x="---" y="---" z="---" />
+<singlespawn delay="600000" name="Demonfrost" x="---" y="---" z="---" />
+<singlespawn delay="600000" name="Demonfrost" x="---" y="---" z="---" />
+</raid>
